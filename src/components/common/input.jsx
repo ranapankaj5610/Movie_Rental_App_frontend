@@ -7,7 +7,7 @@ const Input = ({ name, label, error, ...rest})=> {
                   {...rest}
                   name={name}
                   id={name}
-                  className="form-contol"
+                  className="form-control"
                  />
                  {error && <div className="alert alert-danger">{error}</div>}
                 </div>
