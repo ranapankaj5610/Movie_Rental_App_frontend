@@ -124,6 +124,7 @@ class Movies extends Component {
             movies={movies}
             sortColumn={sortColumn}
             onLike={this.handleLike}
+            onAdd={this.props.onAdd}
             onDelete={this.handleDelete}
             onSort={this.handleSort}
           />

@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-const NavBar = ({ user }) => {
+const NavBar = ({ user,cart }) => {
+
+  
     return ( 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
            <Link className="navbar-brand" to="/">
@@ -28,6 +30,12 @@ const NavBar = ({ user }) => {
         </NavLink>
        <NavLink className="nav-item nav-link " to="/rentals">
           Rentals
+        </NavLink>
+
+        <NavLink className="nav-item nav-link" to="/cart">
+              <button class="btn btn-primary">
+                Cart {(cart.length)?cart.length: "empty"}
+      </button>
         </NavLink>
         {!user && (
           <React.Fragment>
