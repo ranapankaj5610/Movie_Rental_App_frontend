@@ -20,17 +20,6 @@ class MoviesTable extends Component {
       )
     },
     {
-      key: "addToCart",
-      content: movie => (
-        <button
-          onClick={() => this.props.onAdd(movie)}
-          className="btn btn-success btn-sm"
-        >
-          Add To Cart
-        </button>
-      )
-    },
-    {
       key: "delete",
       content: movie => (
         <button
