@@ -17,7 +17,19 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    cart: [{"_id":"hcireufh4783fyhri", "title":"xyz"}]
+    cart: [
+      {
+        title: "Airplane",
+
+        numberInStock: 5,
+        dailyRentalRate: 2,
+        price: 10,
+        imageUrl:
+          "http://pocatellofilmsociety.com/sites/default/files/onceupon_0.jpg",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere, sapien sed lobortis pulvinar, mi felis sollicitudin lectus, ut pharetra est metus sit amet massa. Suspendisse mattis suscipit quam, id dapibus nisi posuere non. Mauris dignissim libero accumsan, lobortis nulla et, ullamcorper ipsum. Proin luctus lobortis placerat. Vestibulum pharetra maximus tellus id consectetur. Praesent dignissim in ligula a scelerisque. Sed et turpis feugiat, faucibus purus consectetur, convallis lectus. Nulla mattis lobortis ipsum eget condimentum."
+      }
+    ]
   };
   handleCartAdd = item => {
     const originalCart = this.state.cart;
@@ -26,7 +38,6 @@ class App extends Component {
   };
 
   handleCartRemove = item => {
-    
     const cart = this.state.cart.filter(c => c._id !== item._id);
     this.setState({ cart });
   };
@@ -40,7 +51,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <ToastContainer />
-        <NavBar user={this.state.user} cart={this.state.cart}/>
+        <NavBar user={this.state.user} cart={this.state.cart} />
         <main className="container">
           <Switch>
             <Route path="/register" component={RegisterForm} />
@@ -57,7 +68,10 @@ class App extends Component {
             ></Route>
             <Route path="/logout" component={Logout} />
             <Route path="/movies/:id" component={MovieForm} />
-            <Route path="/movies" component={()=><Movies onAdd={this.handleCartAdd}></Movies>} />
+            <Route
+              path="/movies"
+              component={() => <Movies onAdd={this.handleCartAdd}></Movies>}
+            />
             <Route path="/customers" component={Customers} />
             <Route path="/rentals" component={Rentals} />
             <Route path="/not-found" component={NotFound} />
