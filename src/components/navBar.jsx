@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-
-const NavBar = ({ user }) => {
+import {Button} from 'react-bootstrap';
+const NavBar = ({ user, cart }) => {
     return ( 
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
            <Link className="navbar-brand" to="/">
@@ -40,19 +40,36 @@ const NavBar = ({ user }) => {
         </React.Fragment>
         )}
 
-        {user && (
-         <React.Fragment>
-           <NavLink className="nav-item nav-link " to="/profile">
-             {user.name}
-           </NavLink>
-           <NavLink className="nav-item nav-link " to="/logout">
-             Logout
-           </NavLink>
-        </React.Fragment>
-        )}
+         
+          {!user && (
+            <React.Fragment>
+              <NavLink className="nav-item nav-link " to="/login">
+                Login
+              </NavLink>
+              <NavLink className="nav-item nav-link " to="/register">
+                Register
+              </NavLink>
+            </React.Fragment>
+          )}
 
-       </div>
-     </div>
+          {user && (
+            <React.Fragment>
+              <NavLink className="nav-item nav-link " to="/profile" style={{float: "right"}}>
+                {user.name}
+              </NavLink>
+              <NavLink className="nav-item nav-link " to="/logout" style={{float: "right"}}>
+                Logout
+              </NavLink>
+            </React.Fragment>
+          )}
+          <NavLink className="nav-item nav-link" to="/cart">
+            <Button variant="warning" style={{ float: "right" }}>
+              {" "}
+              Cart {cart.length ? cart.length : "empty"}
+            </Button>
+          </NavLink>
+        </div>
+      </div>
     </nav>
   );
 };
