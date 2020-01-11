@@ -1,14 +1,13 @@
 import * as genresAPI from "./fakeGenreService";
 const axios=require("axios");
 let movies=[];
-const api="http://localhost:3000/api";
 export async function getMovies() {
-  movies=await axios.get(api+"/movies");
+  movies=await axios.get("/movies");
  return movies;
 }
 
 export async function getMovie(id) {
-  let movie=await axios.get(api+"/movies/"+id);
+  let movie=await axios.get("/movies/"+id);
   return movie;
 }
 

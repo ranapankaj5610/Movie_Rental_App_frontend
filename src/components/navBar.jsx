@@ -28,7 +28,7 @@ const NavBar = ({ user, cart }) => {
         </NavLink>
        <NavLink className="nav-item nav-link " to="/rentals">
           Rentals
-        </NavLink>
+        </NavLink>  
         {!user && (
           <React.Fragment>
            <NavLink className="nav-item nav-link " to="/login">
@@ -40,18 +40,6 @@ const NavBar = ({ user, cart }) => {
         </React.Fragment>
         )}
 
-         
-          {!user && (
-            <React.Fragment>
-              <NavLink className="nav-item nav-link " to="/login">
-                Login
-              </NavLink>
-              <NavLink className="nav-item nav-link " to="/register">
-                Register
-              </NavLink>
-            </React.Fragment>
-          )}
-
           {user && (
             <React.Fragment>
               <NavLink className="nav-item nav-link " to="/profile" style={{float: "right"}}>
@@ -62,12 +50,7 @@ const NavBar = ({ user, cart }) => {
               </NavLink>
             </React.Fragment>
           )}
-          <NavLink className="nav-item nav-link" to="/cart">
-            <Button variant="warning" style={{ float: "right" }}>
-              {" "}
-              Cart {cart.length ? cart.length : "empty"}
-            </Button>
-          </NavLink>
+         
         </div>
       </div>
     </nav>

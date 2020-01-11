@@ -2,7 +2,10 @@ import axios from "axios";
 import logger from "./logService";
 import { toast } from "react-toastify";
 
+axios.defaults.baseURL="https://movie-rental-backend.herokuapp.com/api";
 axios.interceptors.response.use(null, error => {
+
+console.log(process.env);
   const expectedError =
     error.response &&
     error.response.status >= 400 &&
